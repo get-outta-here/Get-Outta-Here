@@ -14,3 +14,7 @@ h1 {
 #zip-code {
     margin: 0px 20px 20px 20px;
 }
+#error-message {
+    color: red;
+    text-decoration: italicize;
+}
