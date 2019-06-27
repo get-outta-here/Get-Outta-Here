@@ -1,0 +1,16 @@
+.h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    font-size: 40px;
+    color: orangered !important;
+}
+#carouselExampleIndicators {
+    margin: 20px 20px;
+    width: 50%;
+}
+h1 {
+    font-weight: bolder !important;
+}
+#zip-code {
+    margin: 0px 20px 20px 20px;
+}
