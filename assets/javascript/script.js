@@ -1,12 +1,11 @@
 $(document).ready(function () {
 
-    var zip = $("#zip-input").val().trim();
-
     var keys = {
         placesApi: "AIzaSyBe_wSwxi8DiMJ4g5ClD0ItuTGWWWxcLlg"
     }
 
     $("#zip-code").on("click", function (event) {
+        var zip = $("#zip-input").val().trim();
         event.preventDefault();
         console.log(zip);
         $("#display-places").empty();
