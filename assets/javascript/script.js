@@ -1,31 +1,38 @@
-$("#zip-code").on("click", function (event) {
-    event.preventDefault();
+$(document).ready(function () {
+
     var zip = $("#zip-input").val().trim();
-    console.log(zip); {
+
+    var keys = {
+        placesApi: "AIzaSyBe_wSwxi8DiMJ4g5ClD0ItuTGWWWxcLlg"
+    }
+
+    $("#zip-code").on("click", function (event) {
+        event.preventDefault();
+        console.log(zip);
         $("#display-places").empty();
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + zip + "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=10";
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        })
-            .then(function (response) {
-                console.log(response);
-                var results = response.data;
-                for (var i = 0; i < results.length; i++) {
-                    if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
-                        var $newGif = $("<div>");
-                        var rating = results[i].rating.toUpperCase();
-                        var $p = $("<p>").html("Rating: " + rating);
-                        var $tvGif = $("<img class='gif'>");
-                        $tvGif.attr("src", results[i].images.fixed_height_still.url);
-                        $tvGif.attr("data-still", results[i].images.fixed_height_still.url);
-                        $tvGif.attr("data-animate", results[i].images.fixed_height.url);
-                        $tvGif.attr("data-state", "still");
-                        $newGif.append($tvGif);
-                        $newGif.append($p);
-                        $("#display-places").append($newGif);
-                    }
-                }
-            });
-        }
+        
+    function queryPlaces(searchType, zip) {
+        var queryString = $.param({
+            key: keys.placesApi,
+            query: searchType + " in " + zip,
+            fields: "photos,formatted_address,name,rating,opening_hours,geometry"
+        });
+        var queryUrl = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?" + queryString;
+        return $.ajax({
+            method: "GET",
+            url: queryUrl
+        });
+    }
+    var requests = [];
+    requests.push(queryPlaces("attraction", zip));
+    requests.push(queryPlaces("restaurant", zip));
+    var doAllRequests = Promise.all(requests);
+
+    doAllRequests.then(function (responses) {
+        console.log(responses);
     });
+
+
+   
+    });
+});
