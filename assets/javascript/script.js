@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     var keys = {
-        placesApi: "AIzaSyBe_wSwxi8DiMJ4g5ClD0ItuTGWWWxcLlg"
+        placesApi: "AIzaSyBGBzQZ59oXxaYkhLWHOjPf_Jm4Ez_p4E4"
     }
 
     $("#zip-code").on("click", function (event) {
@@ -32,11 +32,14 @@ $(document).ready(function () {
             for (var i = 0; i < responses.length; i++) {
                 for (var j = 0; j < responses[i].results.length; j++) {
                     var $newDiv = $("<div>");
+                    var $name = $("<h1>");
                     var $placePic = $("<p>");
                     var $image = $("<img>");
+                    $name.html(responses[i].results[j].name);
                     $placePic.html(responses[i].results[j].formatted_address);
                     var photoUrl = "https://maps.googleapis.com/maps/api/place/photo?maxheight=150&photoreference=" + responses[i].results[j].photos[0].photo_reference + "&key=AIzaSyBe_wSwxi8DiMJ4g5ClD0ItuTGWWWxcLlg"
-                    $image.attr("src",photoUrl)
+                    $image.attr("src",photoUrl);
+                    $newDiv.append($name);
                     $newDiv.append($placePic);
                     $newDiv.append($image);
                     $("#display-places").append($newDiv);
