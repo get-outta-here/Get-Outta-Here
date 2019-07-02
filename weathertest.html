@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Five Day Forecast</title>
+</head>
+
+<body>
+  <!-- Retrieved data will be dumped here -->
+  <div class="currentTime"></div>
+  <div class="city"></div>
+  <div class="forecast"></div>
+ 
+  <div id="zip-code" class="row justify-content-center">
+    <input type="text" id="zip-input" style="width: 20%;">
+    <input id="zip-butt" type="submit" value="Type in your zip code">
+    <p id="error-message"></p>
+</div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+  <script type="text/javascript">
+
+var now = moment().format('MMMM Do YYYY, h:mm:ss a');
+console.log(now);
+$(".currentTime").text(now);
+
+
+$("#zip-butt").on("click", function (event) {
+       var zip = $("#zip-input").val().trim();
+       event.preventDefault();
+       console.log(zip);
+
+    // This is our API key. Add your own API key between the ""
+    var APIKey = "878ee95c574dcbe5161a972a6aca69de";
+
+    // Here we are building the URL we need to query the database
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?zip=" 
+    + zip + ",us&units=imperial&appid=" + APIKey;
+    console.log(zip);
+  
+
+    // We then created an AJAX call
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+      // Create CODE HERE to Log the queryURL
+        //console.log(queryURL);
+      // Create CODE HERE to log the resulting object
+      
+      
+       
+      // console.log(response);
+      var results = response.list;
+      console.log("city: ", response.city.name, response.city.country);
+      
+      // console.log( "day 1: ", results[0].dt_txt, "weather: ", results[0].main.temp + "°F ", results[0].weather[0].description);
+
+      // console.log( "day 2: ", results[8].dt_txt, "weather: ", results[8].main.temp + "°F ", results[8].weather[0].description);
+      // console.log("day 3: ", results[16].dt_txt, "weather: ", results[16].main.temp + "°F ",  results[16].weather[0].description);
+      // console.log("day 4: ", results[24].dt_txt, "weather: ", results[24].main.temp + "°F ",  results[24].weather[0].description);
+      // console.log("day 5: ", results[32].dt_txt, "weather: ", results[32].main.temp + "°F ",  results[32].weather[0].description);
+      
+      // Create CODE HERE to calculate the temperature (converted from Kelvin)
+      // Hint: To convert from Kelvin to Fahrenheit: F = (K - 273.15) * 1.80 + 32
+      // Create CODE HERE to dump the temperature content into HTML
+        $(".city").text(response.city.name + ", " + response.city.country);
+        
+        
+       
+
+        for (var i = 0; i <= 32; i+=8){
+
+          
+          var dateTime = moment(results[i].dt_txt);
+          var formatDate = dateTime.format("dddd MMM Do YYYY");
+          console.log(formatDate);
+          
+          console.log( "day:", (i / 8 + 1), formatDate, "weather: ", results[i].main.temp + "°F ", results[i].weather[0].description);
+          
+           $(".forecast").append(`
+           <br>
+            day ${(i / 8 + 1)}: ${formatDate}
+            weather: ${results[i].main.temp}°F 
+            ${results[i].weather[0].description}
+           `);
+          if (results[i].weather[0].description == "clear sky"){
+            console.log("sunny");
+            
+            $(".forecast").append("<img src=assets/images/icons/iconfinder_weather01_4102328.png>")
+          }
+          else if ((results[i].weather[0].description == "broken clouds") 
+           || (results[i].weather[0].description == "scattered clouds"))
+           {
+            console.log("partially cloudy");
+            $(".forecast").append("<img src=assets/images/icons/iconfinder_weather02_4102326.png>")
+          }
+        
+        
+        
+        
+        }
+
+        
+        // $(".temp").text("Temperature: " + response.main.temp + "°F");
+        // $(".wind").text("wind speed: " + response.wind.speed);
+        // $(".humidity").text("humidity: " + response.main.humidity);
+       
+
+    });
+  });
+  </script>
+</body>
+
+</html>
