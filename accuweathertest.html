@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Five Day Forecast</title>
+</head>
+
+<body>
+  <!-- Retrieved data will be dumped here -->
+  <div class="currentTime"></div>
+  
+ 
+  <div id="zip-code" class="row justify-content-center">
+    <input type="text" id="text-input" style="width: 20%;">
+    <input id="input-button" type="submit" value="Type in your city or zip code">
+    <div class="city"></div>
+  <div class="forecast"></div>
+    <p id="error-message"></p>
+</div>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+  <script type="text/javascript">
+
+// var now = moment().format('MMMM Do YYYY, h:mm:ss a');
+// console.log(now);
+// $(".currentTime").text(now);
+
+
+$("#input-button").on("click", function (event) {
+      $(".forecast").empty();
+       var location = $("#text-input").val().trim();
+       event.preventDefault();
+       console.log(location);
+
+    // This is our API key. Add your own API key between the ""
+    var APIKey = "w88ukDdKbzSsjPAOTOKqRdMWoACnCG55";
+
+    // Here we are building the URL we need to query the database
+    // var queryURL = "https://api.openweathermap.org/data/2.5/forecast?zip=" 
+    // + zip + ",us&units=imperial&appid=" + APIKey;
+
+    // querys the Accuweather Locations API with a text string of the location
+   var queryLocations = "http://dataservice.accuweather.com/locations/v1/search?apikey=" + APIKey + "&q=" + location;
+    console.log(location);
+
+  
+  
+
+    // We then created an AJAX call
+    $.get({
+      url: queryLocations,
+      
+    }).then(function(response) {
+      // Create CODE HERE to Log the queryURL
+        //console.log(queryURL);
+      // Create CODE HERE to log the resulting object
+      
+     
+       
+      // console.log(response);
+      var results = response;
+      console.log(response);
+      
+  // assigns the location key from the previous query to a location key variable
+  
+  var locationKey = results[0].Key;
+  console.log(locationKey);
+   // querys the Accuweather Forcast API with the location Key
+   var queryForecast = "http://dataservice.accuweather.com/forecasts/v1/daily/5day/" + locationKey + "?apikey=" + APIKey + "&q=" + locationKey;
+    
+   $.get({
+      url: queryForecast,
+      
+    }).then(function(responseForecast) {
+      // Create CODE HERE to Log the queryURL
+        //console.log(queryURL);
+      // Create CODE HERE to log the resulting object
+      
+   
+
+
+      // console.log( "day 1: ", results[0].dt_txt, "weather: ", results[0].main.temp + "°F ", results[0].weather[0].description);
+
+      // console.log( "day 2: ", results[8].dt_txt, "weather: ", results[8].main.temp + "°F ", results[8].weather[0].description);
+      // console.log("day 3: ", results[16].dt_txt, "weather: ", results[16].main.temp + "°F ",  results[16].weather[0].description);
+      // console.log("day 4: ", results[24].dt_txt, "weather: ", results[24].main.temp + "°F ",  results[24].weather[0].description);
+      // console.log("day 5: ", results[32].dt_txt, "weather: ", results[32].main.temp + "°F ",  results[32].weather[0].description);
+      
+      // Create CODE HERE to calculate the temperature (converted from Kelvin)
+      // Hint: To convert from Kelvin to Fahrenheit: F = (K - 273.15) * 1.80 + 32
+      // Create CODE HERE to dump the temperature content into HTML
+      
+      // print city name  
+      console.log(results[0].EnglishName);
+      $(".city").html("Five Day Forecast for " + results[0].EnglishName + ", " + results[0].AdministrativeArea.EnglishName + ", " + results[0].Country.EnglishName);
+        
+      var fiveDayForecast = responseForecast.DailyForecasts;
+
+        console.log("length: ", fiveDayForecast.length);
+        console.log("object: ", responseForecast);
+        console.log("day and time: ", fiveDayForecast[0].Date);
+        console.log("icon: ", fiveDayForecast[0].Day.Icon);
+       
+
+        for (var i = 0; i < fiveDayForecast.length; i++){
+
+          
+          var dateTime = moment(fiveDayForecast[i].Date);
+          var formatDate = dateTime.format("dddd MMM Do YYYY");
+          console.log(formatDate);
+          
+          console.log(formatDate, "high: ", fiveDayForecast[i].Temperature.Maximum.Value + "°F ", fiveDayForecast[i].Day.IconPhrase);
+          var $image = $("<img>");
+          $image.attr("src", "assets/images/icons/" + fiveDayForecast[i].Day.Icon + "-s.png");
+          
+           $(".forecast").append(`
+           <br>
+            ${formatDate}
+            <br>
+            high: ${fiveDayForecast[i].Temperature.Maximum.Value}°F 
+            <br>
+            low: ${fiveDayForecast[i].Temperature.Minimum.Value}°F 
+            <br>
+            ${fiveDayForecast[i].Day.IconPhrase}
+            <p>
+           `);
+           $(".forecast").append($image);
+          // if (results[i].weather[0].description == "clear sky"){
+          //   console.log("sunny");
+            
+          //   $(".forecast").append("<img src=assets/images/icons/iconfinder_weather01_4102328.png>")
+          // }
+          // else if ((results[i].weather[0].description == "broken clouds") 
+          //  || (results[i].weather[0].description == "scattered clouds"))
+          //  {
+          //   console.log("partially cloudy");
+          //   $(".forecast").append("<img src=assets/images/icons/iconfinder_weather02_4102326.png>")
+          // }
+        
+        
+        }
+        
+        })
+
+        
+        // $(".temp").text("Temperature: " + response.main.temp + "°F");
+        // $(".wind").text("wind speed: " + response.wind.speed);
+        // $(".humidity").text("humidity: " + response.main.humidity);
+       
+
+    });
+  });
+  </script>
+</body>
+
+</html>
