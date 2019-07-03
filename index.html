@@ -8,9 +8,12 @@
     <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Get Outta Here!</title>
+    
 </head>
 
 <body>
+
+
     <div class="top-bar">
         <div class="top-bar-left">
             <ul class="menu" data-responsive-menu="accordion">
@@ -77,20 +80,67 @@
     <div id="display-places"></div>
     <div class="row">
         <div class="medium-6 columns">
-        <ul class="menu">
-        <li><a href="#">Get Outta Here</a></li>
-        </ul>
+            <ul class="menu">
+                <li class= "maps1"><a href="https://www.google.com/maps"><img src="https://img.icons8.com/color/48/000000/google-maps.png"></a></li>
+            </ul>
         </div>
         <div class="medium-6 columns">
-        <ul class="menu float-right">
-        <li class="menu-text">Copyright</li>
-        </ul>
+            <ul class="menu float-right">
+                <li class="menu-text">Copyright</li>
+            </ul>
         </div>
-        </div>
-        </footer>
+    </div>
+
+<!-- <form action="alert" onsubmit="validate()">
+    alert("Invalid Zip-Code");
+  <input type="text"id="phone-number" placeholder="phone number"> <br>
+  <input type="text" id="postal-code" placeholder="postal code"><br> -->
+  <!-- <input type="submit"> -->
+<!-- </form> --> 
+
+<!-- /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/ -->
+
+    </footer>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
     <script src="assets/javascript/script.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/6.2.4/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#reserved-urls -->
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCr7uygRdCf9jQkUK66rNsrk3qqbnyLEk0",
+            authDomain: "getouttahere-84fb8.firebaseapp.com",
+            databaseURL: "https://getouttahere-84fb8.firebaseio.com",
+            projectId: "getouttahere-84fb8",
+            storageBucket: "getouttahere-84fb8.appspot.com",
+            messagingSenderId: "241821469177",
+            appId: "1:241821469177:web:785feb9449cf7af4"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+
+
+    </div>
+
+    
+
+
 </body>
+
+
 
 </html>
