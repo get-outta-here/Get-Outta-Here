@@ -79,7 +79,7 @@ $(document).ready(function () {
 
 
         for (var i = 0; i < fiveDayForecast.length; i++) {
-
+          console.log("time: ", moment(fiveDayForecast[i].Date));
 
           var dateTime = moment(fiveDayForecast[i].Date);
           var formatDate = dateTime.format("dddd MMM Do YYYY");
@@ -89,7 +89,7 @@ $(document).ready(function () {
           var $image = $("<img>");
           $image.attr("src", "assets/images/icons/" + fiveDayForecast[i].Day.Icon + "-s.png");
 
-          $(".forecast").append(`
+          $("#display-weather").append(`
      <br>
       ${formatDate}
       <br>
@@ -101,7 +101,7 @@ $(document).ready(function () {
       <p>
      `);
 
-          $(".forecast").append($image);
+          $("#display-weather").append($image);
 
 
 
