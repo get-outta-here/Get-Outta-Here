@@ -4,7 +4,6 @@ $(document).ready(function () {
   //  console.log(now);
   //  $(".currentTime").text(now);
 
-
   $("#zip-butt").on("click", function (event) {
     $("#display-weather").empty();
     var location = $("#zip-input").val().trim();
@@ -53,8 +52,7 @@ $(document).ready(function () {
         url: queryForecast,
 
       }).then(function (responseForecast) {
-
-        var $fiveDayForecast = $("<div class='row small-up-1 medium-up-2 large-up-5'>");
+        var $displayForecast = $("<div class='row small-up-1 medium-up-2 large-up-5'>");
         var $rowCol = $("<div class='row column'>");
         var $title = $("<p class='lead'>");
         $title.append("Five Day Forecast for " + results[0].EnglishName + ", " + results[0].AdministrativeArea.EnglishName + ", " + results[0].Country.EnglishName);
@@ -82,26 +80,48 @@ $(document).ready(function () {
           console.log("time: ", moment(fiveDayForecast[i].Date));
 
           var dateTime = moment(fiveDayForecast[i].Date);
-          var formatDate = dateTime.format("dddd MMM Do YYYY");
-          console.log(formatDate);
+          var formatDate = dateTime.format("ddd MMM Do YYYY");
+          // console.log(formatDate);
 
-          console.log(formatDate, "high: ", fiveDayForecast[i].Temperature.Maximum.Value + "°F ", fiveDayForecast[i].Day.IconPhrase);
+          // console.log(formatDate, "high: ", fiveDayForecast[i].Temperature.Maximum.Value + "°F ", fiveDayForecast[i].Day.IconPhrase);
+          var $newCol = $("<div class='column'>");
+          var $newOut = $("<div class='callout'>");
+          var $newP = $("<p>");
           var $image = $("<img>");
+          var $description = $("<p class='lead'>");
+          $description.attr("style", "font-size: 13px; color:grey;");
+          var $high = $("<p class='subheader'>");
+          var $low = $("<p class='subheader'>");
+          $newP.html(formatDate);
           $image.attr("src", "assets/images/icons/" + fiveDayForecast[i].Day.Icon + "-s.png");
+          $image.attr("style", "margin-left: 25%");
+          $description.html(fiveDayForecast[i].Day.IconPhrase);
+          $high.html("High: " + fiveDayForecast[i].Temperature.Maximum.Value + "°F");
+          $high.attr("style", "color: red;");
+          $low.html("Low: " + fiveDayForecast[i].Temperature.Minimum.Value + "°F");
+          $low.attr("style", "color: blue;");
+          $newOut.append($newP);
+          $newOut.append($image);
+          $newOut.append($description);
+          $newOut.append($high);
+          $newOut.append($low);
+          $newCol.append($newOut);
+          $displayForecast.append($newCol);
 
-          $("#display-weather").append(`
-     <br>
-      ${formatDate}
-      <br>
-      high: ${fiveDayForecast[i].Temperature.Maximum.Value}°F 
-      <br>
-      low: ${fiveDayForecast[i].Temperature.Minimum.Value}°F 
-      <br>
-      ${fiveDayForecast[i].Day.IconPhrase}
-      <p>
-     `);
 
-          $("#display-weather").append($image);
+    //       $("#display-weather").append(`
+    //  <br>
+    //   ${formatDate}
+    //   <br>
+    //   high: ${fiveDayForecast[i].Temperature.Maximum.Value}°F 
+    //   <br>
+    //   low: ${fiveDayForecast[i].Temperature.Minimum.Value}°F 
+    //   <br>
+    //   ${fiveDayForecast[i].Day.IconPhrase}
+    //   <p>
+    //  `);
+
+          $("#display-weather").append($displayForecast);
 
 
 
