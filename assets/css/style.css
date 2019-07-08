@@ -4,6 +4,13 @@
     font-size: 40px;
     color: orangered !important;
 }
+.form-control{
+    margin: 25px 20px 0px 0px;
+}
+.menu-text{
+    color:#ff5b00;
+}
+
 #carouselExampleIndicators {
     margin: 20px 20px;
     width: 50%;
@@ -17,4 +24,27 @@ h1 {
 #error-message {
     color: red;
     text-decoration: italicize;
+}
+
+#ziperror {
+    display: none;
+    color: red;
+}
+#carouselControls{
+    position: center;
+    margin: 20px 20px 20px 20px;
+    height: auto;
+    width: auto;
+}
+.maps{
+    margin: 0px 0px 25px 0px;
+}
+.menu-text{
+    margin: 30px;
+}
+#display-places{
+    position: relative;
+    margin: 10px 20px 10px 20px;
+    height: auto;
+    width: auto;
 }

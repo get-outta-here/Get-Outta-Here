@@ -4,10 +4,10 @@ $(document).ready(function () {
   //  console.log(now);
   //  $(".currentTime").text(now);
 
-  $("#zip-butt").on("click", function (event) {
-    $("#display-weather").empty();
-    var location = $("#zip-input").val().trim();
+  $("form").on("submit", function (event) {
     event.preventDefault();
+    $("#display-weather").empty();
+    var location = $("#validatezipcode").val().trim();
     console.log(location);
 
     // This is our API key. Add your own API key between the ""
