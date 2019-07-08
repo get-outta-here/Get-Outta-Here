@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Foundation | Welcome</title>
     <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+      rel="stylesheet"
+    />
+    <link
       rel="stylesheet"
       href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css"
     />
@@ -41,18 +45,26 @@
               <li><a href="contact.html">About</a></li>
             </ul>
           </div>
-          <div class="top-bar-right">
+          <!-- <div class="top-bar-right">
             <ul class="menu">
-              <li>
-                <input
-                  type="search"
-                  name="search"
-                  placeholder="Enter a City or Zip Code"
-                  class="animated-search-form"
-                />
-              </li>
+                <li><a href="#">My Account</a></li>
+                <li><a id="modalBtn" class="loginButton">Login</a></li>
+                <div id="simpleModal" class="modal">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="closeBtn">&times;</span>
+                      <h2>Modal Header</h2>
+                    </div>
+                    <div class="modal-body">
+      
+                    </div>
+                    <div class="modal-footer">
+                      <h3>Modal Footer</h3>
+                    </div>
+                  </div>
+                </div>
             </ul>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -61,48 +73,72 @@
 
     <header class="hero-search-filter">
       <div class="hero-search-filter-content">
-        <img
+        <!-- <img
           class="hero-search-filter-logo"
           src="https://placehold.it/160x80"
           alt=""
-        />
+        /> -->
         <form class="hero-search-filter-form" action="">
           <label for="findtext">Find</label>
           <input
-            id="findtext"
+            id="zip-input"
             class="hero-search-filter-form-find"
             type="text"
           />
-          <div class="divider">&nbsp;</div>
+          <!-- <div class="divider">&nbsp;</div>
           <label for="findlocate">Near</label>
           <input
             id="findlocate"
             class="hero-search-filter-form-near"
             type="text"
-          />
-          <button class="button"><i class="fa fa-search"></i></button>
+          /> -->
+          <button id="zip-butt" class="button" type="submit" data-toggle="animatedModal10">
+            <i class="fa fa-search"></i>
+          </button>
+
+          <div
+            class="reveal"
+            id="animatedModal10"
+            data-reveal
+            data-close-on-click="true"
+            data-animation-in="spin-in"
+            data-animation-out="spin-out"
+          >
+            <h1>Whoa, I'm dizzy!</h1>
+            <p class="lead">
+              Let's See What You Pick
+            </p>
+            <button
+              class="close-button"
+              data-close
+              aria-label="Close reveal"
+              type="button"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
         </form>
         <ul class="hero-search-filter-menu menu align-center">
           <li>
             <a href="#"
-              ><i class="fa fa-cutlery" aria-hidden="true"></i> Weather</a
+              ><i class="fa fa-thermometer" aria-hidden="true"></i> Weather</a
             >
           </li>
           <li>
             <a href="#"
-              ><i class="fa fa-glass" aria-hidden="true"></i> Attractions</a
+              ><i class="fa fa-map" aria-hidden="true"></i> Attractions</a
             >
           </li>
           <li>
             <a href="#"
-              ><i class="fa fa-wrench" aria-hidden="true"></i> Restaurants</a
+              ><i class="fa fa-cutlery" aria-hidden="true"></i> Restaurants</a
             >
           </li>
-          <li>
+          <!-- <li>
             <a href="#"
               ><i class="fa fa-cutlery" aria-hidden="true"></i> Culture & Events</a
             >
-          </li>
+          </li> -->
         </ul>
       </div>
     </header>
@@ -117,425 +153,56 @@
       </h2>
     </div>
 
-    <br>
-    <br>
+    <br />
+    <br />
     <!-- Results -->
     <!-- Trending -->
     <ul class="accordion" data-accordion>
-      <li class="accordion-item is-active" data-accordion-item>
-        <!-- Accordion tab title -->
-        <a href="#" class="accordion-title"
-          ><p class="lead">Destinations Weather</p></a
-        >
-
-        <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
-        <div class="accordion-content" data-tab-content>
-          <div class="row small-up-1 medium-up-2 large-up-3">
-            <div class="column">
-              <div class="callout">
-                <p>Pegasi B</p>
-                <p>
-                  <img
-                    src="https://placehold.it/400x370&text=Pegasi B"
-                    alt="image of a planet called Pegasi B"
-                  />
-                </p>
-                <p class="lead">Copernican Revolution caused an uproar</p>
-                <p class="subheader">
-                  Find Earth-like planets life outside the Solar System
-                </p>
-              </div>
-            </div>
-            <div class="column">
-              <div class="callout">
-                <p>Pegasi B</p>
-                <p>
-                  <img
-                    src="https://placehold.it/400x370&text=Pegasi B"
-                    alt="image of a planet called Pegasi B"
-                  />
-                </p>
-                <p class="lead">Copernican Revolution caused an uproar</p>
-                <p class="subheader">
-                  Find Earth-like planets life outside the Solar System
-                </p>
-              </div>
-            </div>
-            <div class="column">
-              <div class="callout">
-                <p>Pegasi B</p>
-                <p>
-                  <img
-                    src="https://placehold.it/400x370&text=Pegasi B"
-                    alt="image of a planet called Pegasi B"
-                  />
-                </p>
-                <p class="lead">Copernican Revolution caused an uproar</p>
-                <p class="subheader">
-                  Find Earth-like planets life outside the Solar System
-                </p>
-              </div>
-            </div>
-            <div class="column">
-              <div class="callout">
-                <p>Pegasi B</p>
-                <p>
-                  <img
-                    src="https://placehold.it/400x370&text=Pegasi B"
-                    alt="image of a planet called Pegasi B"
-                  />
-                </p>
-                <p class="lead">Copernican Revolution caused an uproar</p>
-                <p class="subheader">
-                  Find Earth-like planets life outside the Solar System
-                </p>
-              </div>
-            </div>
-            <div class="column">
-              <div class="callout">
-                <p>Pegasi B</p>
-                <p>
-                  <img
-                    src="https://placehold.it/400x370&text=Pegasi B"
-                    alt="image of a planet called Pegasi B"
-                  />
-                </p>
-                <p class="lead">Copernican Revolution caused an uproar</p>
-                <p class="subheader">
-                  Find Earth-like planets life outside the Solar System
-                </p>
-              </div>
-            </div>
-            <div class="column">
-              <div class="callout">
-                <p>Pegasi B</p>
-                <p>
-                  <img
-                    src="https://placehold.it/400x370&text=Pegasi B"
-                    alt="image of a planet called Pegasi B"
-                  />
-                </p>
-                <p class="lead">Copernican Revolution caused an uproar</p>
-                <p class="subheader">
-                  Find Earth-like planets life outside the Solar System
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </li>
       <li class="accordion-item" data-accordion-item>
         <!-- Accordion tab title -->
         <a href="#" class="accordion-title"
-          ><p class="lead">Destinations Attractions</p></a
+          ><em><strong>Weather</strong></em></a
         >
 
         <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
         <div class="accordion-content" data-tab-content>
-          <div class="row small-up-1 medium-up-2 large-up-3">
-            <div class="column">
-              <div class="callout">
-                <p>Pegasi B</p>
-                <p>
-                  <img
-                    src="https://placehold.it/400x370&text=Pegasi B"
-                    alt="image of a planet called Pegasi B"
-                  />
-                </p>
-                <p class="lead">Copernican Revolution caused an uproar</p>
-                <p class="subheader">
-                  Find Earth-like planets life outside the Solar System
-                </p>
-              </div>
-            </div>
-            <div class="column">
-              <div class="callout">
-                <p>Pegasi B</p>
-                <p>
-                  <img
-                    src="https://placehold.it/400x370&text=Pegasi B"
-                    alt="image of a planet called Pegasi B"
-                  />
-                </p>
-                <p class="lead">Copernican Revolution caused an uproar</p>
-                <p class="subheader">
-                  Find Earth-like planets life outside the Solar System
-                </p>
-              </div>
-            </div>
-            <div class="column">
-              <div class="callout">
-                <p>Pegasi B</p>
-                <p>
-                  <img
-                    src="https://placehold.it/400x370&text=Pegasi B"
-                    alt="image of a planet called Pegasi B"
-                  />
-                </p>
-                <p class="lead">Copernican Revolution caused an uproar</p>
-                <p class="subheader">
-                  Find Earth-like planets life outside the Solar System
-                </p>
-              </div>
-            </div>
-            <div class="column">
-              <div class="callout">
-                <p>Pegasi B</p>
-                <p>
-                  <img
-                    src="https://placehold.it/400x370&text=Pegasi B"
-                    alt="image of a planet called Pegasi B"
-                  />
-                </p>
-                <p class="lead">Copernican Revolution caused an uproar</p>
-                <p class="subheader">
-                  Find Earth-like planets life outside the Solar System
-                </p>
-              </div>
-            </div>
-            <div class="column">
-              <div class="callout">
-                <p>Pegasi B</p>
-                <p>
-                  <img
-                    src="https://placehold.it/400x370&text=Pegasi B"
-                    alt="image of a planet called Pegasi B"
-                  />
-                </p>
-                <p class="lead">Copernican Revolution caused an uproar</p>
-                <p class="subheader">
-                  Find Earth-like planets life outside the Solar System
-                </p>
-              </div>
-            </div>
-            <div class="column">
-              <div class="callout">
-                <p>Pegasi B</p>
-                <p>
-                  <img
-                    src="https://placehold.it/400x370&text=Pegasi B"
-                    alt="image of a planet called Pegasi B"
-                  />
-                </p>
-                <p class="lead">Copernican Revolution caused an uproar</p>
-                <p class="subheader">
-                  Find Earth-like planets life outside the Solar System
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li class="accordion-item" data-accordion-item>
-        <!-- Accordion tab title -->
-        <a href="#" class="accordion-title"
-          ><p class="lead">A Foodie's Paradise</p></a
-        >
-
-        <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
-        <div class="accordion-content" data-tab-content>
-          <div class="row column">
-            <p class="lead">Trending Planetary Destinations</p>
-          </div>
-          <div class="row small-up-1 medium-up-2 large-up-3">
-            <div class="column">
-              <div class="callout">
-                <p>Pegasi B</p>
-                <p>
-                  <img
-                    src="https://placehold.it/400x370&text=Pegasi B"
-                    alt="image of a planet called Pegasi B"
-                  />
-                </p>
-                <p class="lead">Copernican Revolution caused an uproar</p>
-                <p class="subheader">
-                  Find Earth-like planets life outside the Solar System
-                </p>
-              </div>
-            </div>
-            <div class="column">
-              <div class="callout">
-                <p>Pegasi B</p>
-                <p>
-                  <img
-                    src="https://placehold.it/400x370&text=Pegasi B"
-                    alt="image of a planet called Pegasi B"
-                  />
-                </p>
-                <p class="lead">Copernican Revolution caused an uproar</p>
-                <p class="subheader">
-                  Find Earth-like planets life outside the Solar System
-                </p>
-              </div>
-            </div>
-            <div class="column">
-              <div class="callout">
-                <p>Pegasi B</p>
-                <p>
-                  <img
-                    src="https://placehold.it/400x370&text=Pegasi B"
-                    alt="image of a planet called Pegasi B"
-                  />
-                </p>
-                <p class="lead">Copernican Revolution caused an uproar</p>
-                <p class="subheader">
-                  Find Earth-like planets life outside the Solar System
-                </p>
-              </div>
-            </div>
-            <div class="column">
-              <div class="callout">
-                <p>Pegasi B</p>
-                <p>
-                  <img
-                    src="https://placehold.it/400x370&text=Pegasi B"
-                    alt="image of a planet called Pegasi B"
-                  />
-                </p>
-                <p class="lead">Copernican Revolution caused an uproar</p>
-                <p class="subheader">
-                  Find Earth-like planets life outside the Solar System
-                </p>
-              </div>
-            </div>
-            <div class="column">
-              <div class="callout">
-                <p>Pegasi B</p>
-                <p>
-                  <img
-                    src="https://placehold.it/400x370&text=Pegasi B"
-                    alt="image of a planet called Pegasi B"
-                  />
-                </p>
-                <p class="lead">Copernican Revolution caused an uproar</p>
-                <p class="subheader">
-                  Find Earth-like planets life outside the Solar System
-                </p>
-              </div>
-            </div>
-            <div class="column">
-              <div class="callout">
-                <p>Pegasi B</p>
-                <p>
-                  <img
-                    src="https://placehold.it/400x370&text=Pegasi B"
-                    alt="image of a planet called Pegasi B"
-                  />
-                </p>
-                <p class="lead">Copernican Revolution caused an uproar</p>
-                <p class="subheader">
-                  Find Earth-like planets life outside the Solar System
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li class="accordion-item" data-accordion-item>
-        <!-- Accordion tab title -->
-        <a href="#" class="accordion-title"
-          ><p class="lead">Culture & Event</p></a
-        >
-
-        <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
-        <div class="accordion-content" data-tab-content>
-          <div class="row small-up-1 medium-up-2 large-up-3">
-            <div class="column">
-              <div class="callout">
-                <p>Pegasi B</p>
-                <p>
-                  <img
-                    src="https://placehold.it/400x370&text=Pegasi B"
-                    alt="image of a planet called Pegasi B"
-                  />
-                </p>
-                <p class="lead">Copernican Revolution caused an uproar</p>
-                <p class="subheader">
-                  Find Earth-like planets life outside the Solar System
-                </p>
-              </div>
-            </div>
-            <div class="column">
-              <div class="callout">
-                <p>Pegasi B</p>
-                <p>
-                  <img
-                    src="https://placehold.it/400x370&text=Pegasi B"
-                    alt="image of a planet called Pegasi B"
-                  />
-                </p>
-                <p class="lead">Copernican Revolution caused an uproar</p>
-                <p class="subheader">
-                  Find Earth-like planets life outside the Solar System
-                </p>
-              </div>
-            </div>
-            <div class="column">
-              <div class="callout">
-                <p>Pegasi B</p>
-                <p>
-                  <img
-                    src="https://placehold.it/400x370&text=Pegasi B"
-                    alt="image of a planet called Pegasi B"
-                  />
-                </p>
-                <p class="lead">Copernican Revolution caused an uproar</p>
-                <p class="subheader">
-                  Find Earth-like planets life outside the Solar System
-                </p>
-              </div>
-            </div>
-            <div class="column">
-              <div class="callout">
-                <p>Pegasi B</p>
-                <p>
-                  <img
-                    src="https://placehold.it/400x370&text=Pegasi B"
-                    alt="image of a planet called Pegasi B"
-                  />
-                </p>
-                <p class="lead">Copernican Revolution caused an uproar</p>
-                <p class="subheader">
-                  Find Earth-like planets life outside the Solar System
-                </p>
-              </div>
-            </div>
-            <div class="column">
-              <div class="callout">
-                <p>Pegasi B</p>
-                <p>
-                  <img
-                    src="https://placehold.it/400x370&text=Pegasi B"
-                    alt="image of a planet called Pegasi B"
-                  />
-                </p>
-                <p class="lead">Copernican Revolution caused an uproar</p>
-                <p class="subheader">
-                  Find Earth-like planets life outside the Solar System
-                </p>
-              </div>
-            </div>
-            <div class="column">
-              <div class="callout">
-                <p>Pegasi B</p>
-                <p>
-                  <img
-                    src="https://placehold.it/400x370&text=Pegasi B"
-                    alt="image of a planet called Pegasi B"
-                  />
-                </p>
-                <p class="lead">Copernican Revolution caused an uproar</p>
-                <p class="subheader">
-                  Find Earth-like planets life outside the Solar System
-                </p>
-              </div>
-            </div>
-          </div>
+          <p>Forecast</p>
+          <div id="display-weather"></div>
+          <div id="forecast"></div>
         </div>
       </li>
       <!-- ... -->
     </ul>
+    <ul class="accordion" data-accordion>
+      <li class="accordion-item" data-accordion-item>
+        <!-- Accordion tab title -->
+        <a href="#" class="accordion-title"
+          ><em><strong>Restaurants</strong></em></a
+        >
 
+        <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
+        <div class="accordion-content" data-tab-content>
+          <p>Restaurants</p>
+          <div id="display-attractions"></div>
+        </div>
+      </li>
+      <!-- ... -->
+    </ul>
+    <ul class="accordion" data-accordion>
+      <li class="accordion-item" data-accordion-item>
+        <!-- Accordion tab title -->
+        <a href="#" class="accordion-title"
+          ><em><strong>Attractions</strong></em></a
+        >
+
+        <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
+        <div class="accordion-content" data-tab-content>
+          <p>Attractions</p>
+          <div id="display-places"></div>
+        </div>
+      </li>
+      <!-- ... -->
+    </ul>
     <!-- Footer -->
 
     <div class="callout large secondary">
@@ -543,10 +210,10 @@
         <div class="large-4 columns">
           <h5>Get Outta Here!!</h5>
           <p>
-            Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus
-            ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti
-            sociosqu ad litora torquent per conubia nostra, per inceptos
-            himenaeos. Sed molestie augue sit.
+            A website dedicated to providing information to future travelers and adventurers.
+            Exploring the world is something that everyone should do enjoy. Seeing the world,
+            and experiencing new places and cultures can really be an eye opener. Where will you
+            go? What will you expereince? 
           </p>
         </div>
         <div class="large-3 large-offset-2 columns">
@@ -574,21 +241,35 @@
       </div>
     </div>
 
+    <!-- <script defer src="/__/firebase/6.2.4/firebase-app.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+        try {
+          let app = firebase.app();
+          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
+          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
+        }
+      });
+    </script> -->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
     <script>
       $(document).foundation();
-
-      $(function() {
-        $(".search").bind("click", function(event) {
-          $(".search-field").toggleClass("expand-search");
-
-          // if the search field is expanded, focus on it
-          if ($(".search-field").hasClass("expand-search")) {
-            $(".search-field").focus();
-          }
-        });
-      });
     </script>
+    <script src="assets/javascript/app.js"></script>
   </body>
 </html>

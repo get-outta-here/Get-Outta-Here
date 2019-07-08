@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Foundation | Welcome</title>
     <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+      rel="stylesheet"
+    />
+    <link
       rel="stylesheet"
       href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css"
     />
@@ -46,7 +50,21 @@
       <div class="top-bar-right">
         <ul class="menu">
           <li><a href="#">My Account</a></li>
-          <li><a class="button">Login</a></li>
+          <li><a id="modalBtn" class="loginButton">Login</a></li>
+          <div id="simpleModal" class="modal">
+            <div class="modal-content">
+              <div class="modal-header">
+                  <span class="closeBtn">&times;</span>
+                <h2>Modal Header</h2>
+              </div>
+              <div class="modal-body">
+                  <p></p>
+              </div>
+              <div class="modal-footer">
+                <h3>Modal Footer</h3>
+              </div>
+            </div>
+          </div>
         </ul>
       </div>
     </div>
@@ -190,14 +208,14 @@
         >
           <div class="flip-card-inner">
             <div class="flip-card-inner-front background-image-1">
-              <span>Adventure Recommendations</span>
+              <span>Adventure Awaits You!</span>
             </div>
             <div class="flip-card-inner-back">
-              <h3 class="flip-card-inner-back-title">Visit Yetiland</h3>
+              <h3 class="flip-card-inner-back-title">Where Do You Wanna Go?</h3>
               <p class="flip-card-inner-back-text">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo
-                doloremque accusantium, repellendus ex debitis molestias,
-                recusandae dignissimos delectus.
+                If you do not know where to go, then close your eyes and just pick. 
+                It is the adventure that chooses us and if you decide to go. Take a Deep 
+                Breath and just Go!
               </p>
               <a href="#" class="button success">Book now</a>
             </div>
@@ -214,11 +232,12 @@
               <span>Culture & Events</span>
             </div>
             <div class="flip-card-inner-back">
-              <h3 class="flip-card-inner-back-title">Visit Yetiland</h3>
+              <h3 class="flip-card-inner-back-title">Which Party To Go To?</h3>
               <p class="flip-card-inner-back-text">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo
-                doloremque accusantium, repellendus ex debitis molestias,
-                recusandae dignissimos delectus.
+                Experiecning different cultures and festivities the locals have to offer 
+                is the best way to Dive-In into a world of something that is not familiar.
+                Learning and feeling new sensations of the mind can elevate any person from 
+                all walks of life. 
               </p>
               <a href="#" class="button success">Book now</a>
             </div>
@@ -239,11 +258,12 @@
               <span>Sights & Attractions</span>
             </div>
             <div class="flip-card-inner-back">
-              <h3 class="flip-card-inner-back-title">Visit Yetiland</h3>
+              <h3 class="flip-card-inner-back-title">What Did You See?</h3>
               <p class="flip-card-inner-back-text">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo
-                doloremque accusantium, repellendus ex debitis molestias,
-                recusandae dignissimos delectus.
+                All the history and wisdom of the Ages are displayed in all areas
+                of the world. Some as High as Everest and some as Low as the Great
+                Barrier. Some are natural and some are man-made. But to see them in 
+                person is a wonder in of itself. 
               </p>
               <a href="#" class="button success">Book now</a>
             </div>
@@ -260,11 +280,12 @@
               <span>Foodie's Paradise</span>
             </div>
             <div class="flip-card-inner-back">
-              <h3 class="flip-card-inner-back-title">Visit Yetiland</h3>
+              <h3 class="flip-card-inner-back-title">Would You Try ...?</h3>
               <p class="flip-card-inner-back-text">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo
-                doloremque accusantium, repellendus ex debitis molestias,
-                recusandae dignissimos delectus.
+                Savory, Sweet, Salty, and Sour are known through all humanity.
+                Each area demonstrates their cuisine in all sorts of ways. Many
+                find their love for certain foods in the smallest corner of the world.
+                Would you give it a try?
               </p>
               <a href="#" class="button success">Book now</a>
             </div>
@@ -284,10 +305,10 @@
         <div class="large-4 columns">
           <h5>Get Outta Here!!</h5>
           <p>
-            Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus
-            ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti
-            sociosqu ad litora torquent per conubia nostra, per inceptos
-            himenaeos. Sed molestie augue sit.
+            A website dedicated to providing information to future travelers and adventurers.
+            Exploring the world is something that everyone should do enjoy. Seeing the world,
+            and experiencing new places and cultures can really be an eye opener. Where will you
+            go? What will you expereince? 
           </p>
         </div>
         <div class="large-3 large-offset-2 columns">
@@ -315,10 +336,34 @@
       </div>
     </div>
 
+    <script defer src="/__/firebase/6.2.4/firebase-app.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+        try {
+          let app = firebase.app();
+          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
+          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
+        }
+      });
+    </script>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
     <script>
       $(document).foundation();
     </script>
+    <script src="assets/javascript/app.js"></script>
   </body>
 </html>
