@@ -5,8 +5,8 @@ var keys = {
     placesApi: "AIzaSyBXO25bppW7obhCSe-wix0epBJ1zlffMGA"
 }
 
-$("#zip-butt").on("click", function (event) {
-    var zip = $("#zip-input").val().trim();
+$("#zipbutton").on("click", function (event) {
+    var zip = $("#validatezipcode").val().trim();
     event.preventDefault();
     console.log(zip);
     $("#display-places").empty();
