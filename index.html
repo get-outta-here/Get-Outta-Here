@@ -1,96 +1,369 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundation | Welcome</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/foundation-icons/foundation-icons.css "
+    />
+    <link
+      rel="stylesheet"
+      href="assets/foundation-icons/foundation-icons.svg"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/motion-ui@1.2.3/dist/motion-ui.min.css"
+    />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>Get Outta Here!</title>
-</head>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- MENU BAR -->
 
-<body>
-    <div class="top-bar">
-        <div class="top-bar-left">
-            <ul class="menu" data-responsive-menu="accordion">
-                <li class="menu-text" style="font-size: 25px;">Get Outta Here</li>
-
-            </ul>
-        </div>
-        <div class="top-bar-right">
-            <ul class="menu">
-                <li><input type="text" id="zip-input"></li>
-                <li><a class="button" id="zip-butt" type="submit">ZIP Code or City</a></li>
-            </ul>
-        </div>
+    <div
+      class="title-bar"
+      data-responsive-toggle="realEstateMenu"
+      data-hide-for="small"
+    >
+      <button class="menu-icon" type="button" data-toggle></button>
+      <div class="title-bar-title">Menu</div>
     </div>
-    <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit
-        data-options="animInFromLeft:fade-in; animInFromRight:fade-in; animOutToLeft:fade-out; animOutToRight:fade-out;">
-        <div class="orbit-wrapper">
-            <div class="orbit-controls">
-                <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
-                <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
-            </div>
-            <ul class="orbit-container">
-                <li class="is-active orbit-slide">
-                    <figure class="orbit-figure">
-                        <img class="orbit-image" src="https://media.timeout.com/images/103444978/image.jpg" alt="NYC">
-                        <figcaption class="orbit-caption">Welcome!</figcaption>
-                    </figure>
-                </li>
-                <li class="orbit-slide">
-                    <figure class="orbit-figure">
-                        <img class="orbit-image"
-                            src="https://www.fodors.com/wp-content/uploads/2018/10/HERO_UltimateParis_Heroshutterstock_112137761.jpg"
-                            alt="Paris">
-                        <figcaption class="orbit-caption">Welcome!</figcaption>
-                    </figure>
-                </li>
-                <li class="orbit-slide">
-                    <figure class="orbit-figure">
-                        <img class="orbit-image"
-                            src="https://lonelyplanetimages.imgix.net/mastheads/65830387.jpg?sharp=10&vib=20&w=1200"
-                            alt="Sydney">
-                        <figcaption class="orbit-caption">Welcome!</figcaption>
-                    </figure>
-                </li>
-                <li class="orbit-slide">
-                    <figure class="orbit-figure">
-                        <img class="orbit-image"
-                            src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Hong_Kong_Island_Skyline_2009.jpg"
-                            alt="Hong Kong">
-                        <figcaption class="orbit-caption">Welcome!</figcaption>
-                    </figure>
-                </li>
-            </ul>
-        </div>
-        <nav class="orbit-bullets">
-            <button class="is-active" data-slide="0"><span class="show-for-sr">First slide details.</span><span
-                    class="show-for-sr">Current Slide</span></button>
-            <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
-            <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
-            <button data-slide="3"><span class="show-for-sr">Fourth slide details.</span></button>
-        </nav>
-    </div>
-    <div id="display-weather"></div>
-    <div id="display-places"></div>
-    <div class="row">
-        <div class="medium-6 columns">
+    <div class="top-bar" id="realEstateMenu">
+      <div class="top-bar-left">
+        <ul class="menu" data-responsive-menu="accordion">
+          <li class="menu-text">Get Outta Here</li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="search.html">Discovery</a></li>
+          <li><a href="contact.html">About</a></li>
+        </ul>
+      </div>
+      <div class="top-bar-right">
         <ul class="menu">
-        <li><a href="#">Get Outta Here</a></li>
+          <li><a href="#">My Account</a></li>
+          <li><a id="modalBtn" class="loginButton">Login</a></li>
+          <div id="simpleModal" class="modal">
+            <div class="modal-content">
+              <div class="modal-header">
+                  <span class="closeBtn">&times;</span>
+                <h2>Modal Header</h2>
+              </div>
+              <div class="modal-body">
+                  <p></p>
+              </div>
+              <div class="modal-footer">
+                <h3>Modal Footer</h3>
+              </div>
+            </div>
+          </div>
         </ul>
+      </div>
+    </div>
+
+    <!-- Image Carosel -->
+
+    <div
+      class="orbit"
+      role="region"
+      aria-label="Favorite Space Pictures"
+      data-orbit
+      data-options="animInFromLeft:fade-in; animInFromRight:fade-in; animOutToLeft:fade-out; animOutToRight:fade-out;"
+    >
+      <ul class="orbit-container">
+        <button class="orbit-previous" aria-label="previous">
+          <span class="show-for-sr">Previous Slide</span>&#9664;
+        </button>
+        <button class="orbit-next" aria-label="next">
+          <span class="show-for-sr">Next Slide</span>&#9654;
+        </button>
+        <li class="orbit-slide is-active">
+          <img src="assets/media/'Travel the World' - Scrabble.jpg" />
+        </li>
+        <li class="orbit-slide">
+          <img src="assets/media/Hot Air Balloon.jpg" />
+        </li>
+        <li class="orbit-slide">
+          <img src="assets/media/Mosque.jpg" />
+        </li>
+        <li class="orbit-slide">
+          <img src="assets/media/Snowy Mountain - Lake Side.jpg" />
+        </li>
+      </ul>
+    </div>
+
+    <!-- Bar Separating Image Caruosel & Interests -->
+<div class="discover row">
+    <h2 class="type-sidelines double"><span>Discover What You Love</span></h2>
+</div>
+    <!-- <div class="row column">
+      <p class="lead">Trending Planetary Destinations</p>
+    </div>
+    <div class="row small-up-1 medium-up-2 large-up-3">
+      <div class="column">
+        <div class="callout">
+          <p>Pegasi B</p>
+          <p>
+            <img
+              src="assets//media/Netherlands.jpg"
+              alt="image of a planet called Pegasi B"
+            />
+          </p>
+          <p class="lead">Copernican Revolution caused an uproar</p>
+          <p class="subheader">
+            Find Earth-like planets life outside the Solar System
+          </p>
         </div>
-        <div class="medium-6 columns">
-        <ul class="menu float-right">
-        <li class="menu-text">Copyright</li>
-        </ul>
+      </div>
+      <div class="column">
+        <div class="callout">
+          <p>Pegasi B</p>
+          <p>
+            <img
+              src="assets/media/Cappadocia.jpg"
+              alt="image of a planet called Pegasi B"
+            />
+          </p>
+          <p class="lead">Copernican Revolution caused an uproar</p>
+          <p class="subheader">
+            Find Earth-like planets life outside the Solar System
+          </p>
         </div>
+      </div>
+      <div class="column">
+        <div class="callout">
+          <p>Pegasi B</p>
+          <p>
+            <img
+              src="assets/media/Kenya.jpg"
+              alt="image of a planet called Pegasi B"
+            />
+          </p>
+          <p class="lead">Copernican Revolution caused an uproar</p>
+          <p class="subheader">
+            Find Earth-like planets life outside the Solar System
+          </p>
         </div>
-        </footer>
+      </div>
+      <div class="column">
+        <div class="callout">
+          <p>Pegasi B</p>
+          <p>
+            <img
+              src="assets/media/Maldives.jpg"
+              alt="image of a planet called Pegasi B"
+            />
+          </p>
+          <p class="lead">Copernican Revolution caused an uproar</p>
+          <p class="subheader">
+            Find Earth-like planets life outside the Solar System
+          </p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="callout">
+          <p>Pegasi B</p>
+          <p>
+            <img
+              src="assets/media/Rome.jpg"
+              alt="image of a planet called Pegasi B"
+            />
+          </p>
+          <p class="lead">Copernican Revolution caused an uproar</p>
+          <p class="subheader">
+            Find Earth-like planets life outside the Solar System
+          </p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="callout">
+          <p>Pegasi B</p>
+          <p>
+            <img
+              src="assets/media/Leaning Tower of Pisa.jpg"
+              alt="image of a planet called Pegasi B"
+            />
+          </p>
+          <p class="lead">Copernican Revolution caused an uproar</p>
+          <p class="subheader">
+            Find Earth-like planets life outside the Solar System
+          </p>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="row">
+      <div class="columns large-6">
+        <div
+          class="flip-card card"
+          ontouchstart="this.classList.toggle('hover');"
+        >
+          <div class="flip-card-inner">
+            <div class="flip-card-inner-front background-image-1">
+              <span>Adventure Awaits You!</span>
+            </div>
+            <div class="flip-card-inner-back">
+              <h3 class="flip-card-inner-back-title">Where Do You Wanna Go?</h3>
+              <p class="flip-card-inner-back-text">
+                If you do not know where to go, then close your eyes and just pick. 
+                It is the adventure that chooses us and if you decide to go. Take a Deep 
+                Breath and just Go!
+              </p>
+              <a href="#" class="button success">Book now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="columns large-6">
+        <div
+          class="flip-card card"
+          ontouchstart="this.classList.toggle('hover');"
+        >
+          <div class="flip-card-inner">
+            <div class="flip-card-inner-front background-image-2">
+              <span>Culture & Events</span>
+            </div>
+            <div class="flip-card-inner-back">
+              <h3 class="flip-card-inner-back-title">Which Party To Go To?</h3>
+              <p class="flip-card-inner-back-text">
+                Experiecning different cultures and festivities the locals have to offer 
+                is the best way to Dive-In into a world of something that is not familiar.
+                Learning and feeling new sensations of the mind can elevate any person from 
+                all walks of life. 
+              </p>
+              <a href="#" class="button success">Book now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+    <br />
+    <div class="row">
+      <div class="columns large-6">
+        <div
+          class="flip-card card"
+          ontouchstart="this.classList.toggle('hover');"
+        >
+          <div class="flip-card-inner">
+            <div class="flip-card-inner-front background-image-3">
+              <span>Sights & Attractions</span>
+            </div>
+            <div class="flip-card-inner-back">
+              <h3 class="flip-card-inner-back-title">What Did You See?</h3>
+              <p class="flip-card-inner-back-text">
+                All the history and wisdom of the Ages are displayed in all areas
+                of the world. Some as High as Everest and some as Low as the Great
+                Barrier. Some are natural and some are man-made. But to see them in 
+                person is a wonder in of itself. 
+              </p>
+              <a href="#" class="button success">Book now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="columns large-6">
+        <div
+          class="flip-card card"
+          ontouchstart="this.classList.toggle('hover');"
+        >
+          <div class="flip-card-inner">
+            <div class="flip-card-inner-front background-image-4">
+              <span>Foodie's Paradise</span>
+            </div>
+            <div class="flip-card-inner-back">
+              <h3 class="flip-card-inner-back-title">Would You Try ...?</h3>
+              <p class="flip-card-inner-back-text">
+                Savory, Sweet, Salty, and Sour are known through all humanity.
+                Each area demonstrates their cuisine in all sorts of ways. Many
+                find their love for certain foods in the smallest corner of the world.
+                Would you give it a try?
+              </p>
+              <a href="#" class="button success">Book now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    <!-- Footer -->
+
+    <div class="callout large secondary">
+      <div class="row">
+        <div class="large-4 columns">
+          <h5>Get Outta Here!!</h5>
+          <p>
+            A website dedicated to providing information to future travelers and adventurers.
+            Exploring the world is something that everyone should do enjoy. Seeing the world,
+            and experiencing new places and cultures can really be an eye opener. Where will you
+            go? What will you expereince? 
+          </p>
+        </div>
+        <div class="large-3 large-offset-2 columns">
+          <ul class="menu vertical">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="search.html">Search</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="large-3 columns">
+          <ul class="menu horizontal">
+            <div class="rounded-social-buttons">
+              <a class="social-button facebook" href="#"></a>
+              <a class="social-button twitter" href="#"></a>
+              <a class="social-button linkedin" href="#"></a>
+              <a class="social-button youtube" href="#"></a>
+              <a class="social-button instagram" href="#"></a>
+              <a class="social-button pinterest" href="#"></a>
+              <a class="social-button google-plus" href="#"></a>
+              <a class="social-button github" href="#"></a>
+              <a class="social-button tumblr" href="#"></a>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script defer src="/__/firebase/6.2.4/firebase-app.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+        try {
+          let app = firebase.app();
+          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
+          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
+        }
+      });
+    </script>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
-    <script src="assets/javascript/script.js"></script>
-</body>
-
+    <script>
+      $(document).foundation();
+    </script>
+    <script src="assets/javascript/app.js"></script>
+  </body>
 </html>

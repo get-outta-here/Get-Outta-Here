@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundation | Welcome</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/foundation-icons/foundation-icons.css "
+    />
+    <link
+      rel="stylesheet"
+      href="assets/foundation-icons/foundation-icons.svg"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/motion-ui@1.2.3/dist/motion-ui.min.css"
+    />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- MENU BAR -->
+
+    <div class="top-bar-container" data-sticky-container>
+      <div
+        class="sticky sticky-topbar"
+        data-sticky
+        data-options="anchor: page; marginTop: 0; stickyOn: small;"
+      >
+        <div class="top-bar">
+          <div class="top-bar-left">
+            <ul class="dropdown menu" data-dropdown-menu>
+              <li class="menu-text">Get Outta Here</li>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="search.html">Discovery</a></li>
+              <li><a href="contact.html">About</a></li>
+            </ul>
+          </div>
+          <!-- <div class="top-bar-right">
+            <ul class="menu">
+                <li><a href="#">My Account</a></li>
+                <li><a id="modalBtn" class="loginButton">Login</a></li>
+                <div id="simpleModal" class="modal">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="closeBtn">&times;</span>
+                      <h2>Modal Header</h2>
+                    </div>
+                    <div class="modal-body">
+      
+                    </div>
+                    <div class="modal-footer">
+                      <h3>Modal Footer</h3>
+                    </div>
+                  </div>
+                </div>
+            </ul>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Search Bar Area -->
+
+    <header class="hero-search-filter">
+      <div class="hero-search-filter-content">
+        <!-- <img
+          class="hero-search-filter-logo"
+          src="https://placehold.it/160x80"
+          alt=""
+        /> -->
+        <form class="hero-search-filter-form" action="">
+          <label for="findtext">Find</label>
+          <input
+            id="zip-input"
+            class="hero-search-filter-form-find"
+            type="text"
+          />
+          <!-- <div class="divider">&nbsp;</div>
+          <label for="findlocate">Near</label>
+          <input
+            id="findlocate"
+            class="hero-search-filter-form-near"
+            type="text"
+          /> -->
+          <button id="zip-butt" class="button" type="submit" data-toggle="animatedModal10">
+            <i class="fa fa-search"></i>
+          </button>
+
+          <div
+            class="reveal"
+            id="animatedModal10"
+            data-reveal
+            data-close-on-click="true"
+            data-animation-in="spin-in"
+            data-animation-out="spin-out"
+          >
+            <h1>Whoa, I'm dizzy!</h1>
+            <p class="lead">
+              Let's See What You Pick
+            </p>
+            <button
+              class="close-button"
+              data-close
+              aria-label="Close reveal"
+              type="button"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </form>
+        <ul class="hero-search-filter-menu menu align-center">
+          <li>
+            <a href="#"
+              ><i class="fa fa-thermometer" aria-hidden="true"></i> Weather</a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><i class="fa fa-map" aria-hidden="true"></i> Attractions</a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><i class="fa fa-cutlery" aria-hidden="true"></i> Restaurants</a
+            >
+          </li>
+          <!-- <li>
+            <a href="#"
+              ><i class="fa fa-cutlery" aria-hidden="true"></i> Culture & Events</a
+            >
+          </li> -->
+        </ul>
+      </div>
+    </header>
+
+    <br />
+    <br />
+
+    <!-- Bar Separating Image Caruosel & Interests -->
+    <div class="discover row">
+      <h2 class="type-sidelines double">
+        <span>Look Into Your Adventure</span>
+      </h2>
+    </div>
+
+    <br />
+    <br />
+    <!-- Results -->
+    <!-- Trending -->
+    <ul class="accordion" data-accordion>
+      <li class="accordion-item" data-accordion-item>
+        <!-- Accordion tab title -->
+        <a href="#" class="accordion-title"
+          ><em><strong>Weather</strong></em></a
+        >
+
+        <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
+        <div class="accordion-content" data-tab-content>
+          <p>Forecast</p>
+          <div id="display-weather"></div>
+          <div id="forecast"></div>
+        </div>
+      </li>
+      <!-- ... -->
+    </ul>
+    <ul class="accordion" data-accordion>
+      <li class="accordion-item" data-accordion-item>
+        <!-- Accordion tab title -->
+        <a href="#" class="accordion-title"
+          ><em><strong>Restaurants</strong></em></a
+        >
+
+        <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
+        <div class="accordion-content" data-tab-content>
+          <p>Restaurants</p>
+          <div id="display-attractions"></div>
+        </div>
+      </li>
+      <!-- ... -->
+    </ul>
+    <ul class="accordion" data-accordion>
+      <li class="accordion-item" data-accordion-item>
+        <!-- Accordion tab title -->
+        <a href="#" class="accordion-title"
+          ><em><strong>Attractions</strong></em></a
+        >
+
+        <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
+        <div class="accordion-content" data-tab-content>
+          <p>Attractions</p>
+          <div id="display-places"></div>
+        </div>
+      </li>
+      <!-- ... -->
+    </ul>
+    <!-- Footer -->
+
+    <div class="callout large secondary">
+      <div class="row">
+        <div class="large-4 columns">
+          <h5>Get Outta Here!!</h5>
+          <p>
+            A website dedicated to providing information to future travelers and adventurers.
+            Exploring the world is something that everyone should do enjoy. Seeing the world,
+            and experiencing new places and cultures can really be an eye opener. Where will you
+            go? What will you expereince? 
+          </p>
+        </div>
+        <div class="large-3 large-offset-2 columns">
+          <ul class="menu vertical">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="search.html">Search</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="large-3 columns">
+          <ul class="menu horizontal">
+            <div class="rounded-social-buttons">
+              <a class="social-button facebook" href="#"></a>
+              <a class="social-button twitter" href="#"></a>
+              <a class="social-button linkedin" href="#"></a>
+              <a class="social-button youtube" href="#"></a>
+              <a class="social-button instagram" href="#"></a>
+              <a class="social-button pinterest" href="#"></a>
+              <a class="social-button google-plus" href="#"></a>
+              <a class="social-button github" href="#"></a>
+              <a class="social-button tumblr" href="#"></a>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- <script defer src="/__/firebase/6.2.4/firebase-app.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+        try {
+          let app = firebase.app();
+          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
+          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
+        }
+      });
+    </script> -->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+    <script src="assets/javascript/app.js"></script>
+  </body>
+</html>
